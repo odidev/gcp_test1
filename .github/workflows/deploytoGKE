@@ -1,0 +1,6 @@
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Check Runner
+        run: echo "Runner is working!"
