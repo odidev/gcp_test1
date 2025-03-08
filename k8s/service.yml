@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: githubactions-gke-demo-service
+spec:
+  selector:
+    app: githubactions-gke-demo # Matches the app label in the Deployment
+  type: LoadBalancer # Creates a GCP Load Balancer
+  ports:
+  - port: 8080 # External port exposed by the Load Balancer
+    targetPort: 80 # Internal port the container is listening on
