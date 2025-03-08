@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: githubactions-gke-demo
+spec:
+  selector:
+    matchLabels:
+      app: githubactions-gke-demo
+  replicas: 3 # Adjust the number of replicas as needed
+  template:
+    metadata:
+      labels:
+        app: githubactions-gke-demo
+    spec:
+      containers:
+      - name: githubactions-gke-demo
+        image: gcr.io/YOUR_PROJECT_ID/githubactions-gke-demo:latest # Replace with your GCR image path
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
