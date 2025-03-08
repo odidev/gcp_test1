@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>gke_demo</RootNamespace>
+    <RootNamespace>gke-demo-cluser</RootNamespace>
   </PropertyGroup>
 
 </Project>
