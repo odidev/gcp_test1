@@ -24,10 +24,7 @@ jobs:
         run: docker build -t githubactions-gke-demo:'${{ github.sha }}' .
 
       - name: Authenticate to Google Container Registry (GCR)
-        run: |
-          echo "${{ secrets.GCP_SA_KEY }}" > key.json
-          gcloud auth activate-service-account --key-file=key.json
-          gcloud auth configure-docker
+        run: gcloud auth configure-docker
 
       - name: Tag and push Docker image to GCR
         run: |
