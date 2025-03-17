@@ -28,8 +28,8 @@ jobs:
 
       - name: Tag and push Docker image to GCR
         run: |
-          docker tag githubactions-gke-demo:'${{ github.sha }}' gcr.io/${{ secrets.GCP_PROJECT_ID }}/githubactions-gke-demo:'${{ github.sha }}'
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/githubactions-gke-demo:'${{ github.sha }}'
+          sudo docker tag githubactions-gke-demo:'${{ github.sha }}' gcr.io/${{ secrets.GCP_PROJECT_ID }}/githubactions-gke-demo:'${{ github.sha }}'
+          sudo docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/githubactions-gke-demo:'${{ github.sha }}'
 
       - name: Get GKE credentials
         run: |
