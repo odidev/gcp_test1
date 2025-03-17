@@ -28,6 +28,7 @@ jobs:
 
       - name: Tag and push Docker image to GCR
         run: |
+          docker tag githubactions-gke-demo:'${{ github.sha }}' gcr.io/astral-subject-452906-a1/githubactions-gke-demo:'${{ github.sha }}'
           sudo docker tag githubactions-gke-demo:'${{ github.sha }}' gcr.io/${{ secrets.GCP_PROJECT_ID }}/githubactions-gke-demo:'${{ github.sha }}'
           sudo docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/githubactions-gke-demo:'${{ github.sha }}'
 
