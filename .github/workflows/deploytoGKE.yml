@@ -21,9 +21,7 @@ jobs:
           export_default_credentials: true
 
       - name: Build Docker image
-        run: |
-          sudo su
-          docker build -t githubactions-gke-demo:'${{ github.sha }}' .
+        run: sudo docker build -t githubactions-gke-demo:'${{ github.sha }}' .
 
       - name: Authenticate to Google Container Registry (GCR)
         run: gcloud auth configure-docker
