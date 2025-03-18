@@ -25,7 +25,7 @@ jobs:
 
       - name: Authenticate to Google Container Registry (GCR)
         run: |
-          gcloud auth activate-service-account --key-file=astral-subject-452906-a1-688f4853da03.json
+          gcloud auth activate-service-account --key-file=${{ secrets.GCP_SA_KEY_1 }}
           gcloud config set account akhand@astral-subject-452906-a1.iam.gserviceaccount.com
           gcloud auth configure-docker
 
