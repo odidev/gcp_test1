@@ -41,4 +41,4 @@ jobs:
             --project ${{ secrets.GCP_PROJECT_ID }}
 
       - name: Deploy application to GKE
-        run: kubectl apply -f k8s/
+        run: kubectl apply -f k8s/deployment.yml -f k8s/service.yml
