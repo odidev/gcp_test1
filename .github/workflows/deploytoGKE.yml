@@ -21,7 +21,7 @@ jobs:
           export_default_credentials: true
 
       - name: Build Docker image
-        run: docker build -t githubactions-gke-demo:'${{ github.sha }}' .
+        run: sudo docker build -t githubactions-gke-demo:'${{ github.sha }}' .
 
       - name: Authenticate to Google Container Registry (GCR)
         run: |
@@ -30,8 +30,8 @@ jobs:
 
       - name: Tag and push Docker image to GCR
         run: |
-          docker tag githubactions-gke-demo:'${{ github.sha }}' gcr.io/astral-subject-452906-a1/githubactions-gke-demo:'${{ github.sha }}'
-          docker push gcr.io/astral-subject-452906-a1/githubactions-gke-demo:'${{ github.sha }}'
+          sudo docker tag githubactions-gke-demo:'${{ github.sha }}' gcr.io/astral-subject-452906-a1/githubactions-gke-demo:'${{ github.sha }}'
+          sudo docker push gcr.io/astral-subject-452906-a1/githubactions-gke-demo:'${{ github.sha }}'
 
       - name: Get GKE credentials
         run: |
